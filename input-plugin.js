@@ -34,6 +34,7 @@ class LEADFORMSUBMISSION {
     addListener() {
         this.showHideError();
         this.$inputElement.addEventListener('focus', (event) => {
+            this.$inputElement.style.borderColor = "#006ACB";
             let hasData = event.target.value;
             if (hasData.length > 0) {
                 if (this.validateNumber()) {
@@ -48,6 +49,7 @@ class LEADFORMSUBMISSION {
         }, true);
 
         this.$inputElement.addEventListener('blur', (event) => {
+            this.$inputElement.style.borderColor = "transparent";
             let hasData = event.target.value;
             if (hasData.length > 0) {
                 if (this.validateNumber()) {
@@ -86,6 +88,7 @@ class LEADFORMSUBMISSION {
     }
 
     showHideError(showFirst=true, showSecond=false, showError=false){
+        if(showError)this.$inputElement.style.borderColor = "#EE2B2B";
         showFirst?this.$infoFirst.style.display = "block" : this.$infoFirst.style.display = "none" ;
         showSecond?this.$infoSecond.style.display = "block" : this.$infoSecond.style.display = "none";
         showError?this.$errorBlock.style.display = "block" : this.$errorBlock.style.display = "none";
