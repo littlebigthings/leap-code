@@ -8,6 +8,7 @@ class LEADFORMSUBMISSION {
         this.$errorBlock = this.$formElement.querySelector(".error-message");
         this.$btn = this.$formElement.querySelector("[data-btn='form']");
         this.inputPlugin = null;
+        this.inputValue = null;
         this.init();
     }
 
@@ -62,6 +63,7 @@ class LEADFORMSUBMISSION {
 
         this.$formElement.addEventListener("submit", (event) => {
             if (this.validateNumber()) {
+                this.$inputElement.value = this.inputValue;
                 this.showHideError(false, false, false);
             }
             else if (!this.validateNumber()) {
@@ -77,6 +79,7 @@ class LEADFORMSUBMISSION {
     validateNumber() {
         let number = this.inputPlugin.getNumber(intlTelInputUtils.numberFormat.E164);
         if (number.length > 0 && this.inputPlugin.isValidNumber()) {
+            this.inputValue = number.replace("+", "");
             return true;
         }
         return false;
