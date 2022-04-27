@@ -1,0 +1,93 @@
+.iti {
+  width: 100%;
+  margin-right: 1.38em;
+}
+.iti__flag-container {
+  padding: 0px;
+}
+.iti--separate-dial-code .iti__selected-flag {
+  background: transparent;
+}
+.iti__selected-flag {
+  padding: 1.38em 0 1.38em 1.38em;
+}
+.iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag {
+  background: transparent;
+}
+.iti__flag.iti__in {
+  box-shadow: none;
+}
+
+.iti--separate-dial-code .iti__selected-dial-code {
+  font-family: Nunito Sans;
+  font-weight: 400;
+  font-size: 1.38em;
+  line-height: 1.25;
+  position: relative;
+  margin-left: 1.18em;
+  padding-left: 1.31em;
+}
+.iti--separate-dial-code .iti__selected-dial-code::before {
+  content: "";
+  position: absolute;
+  top: -0.76em;
+  bottom: 0;
+  left: 0;
+  height: 2.75em;
+  width: 0.069em;
+  background-color: #dddddd;
+}
+.iti__arrow {
+  display: none;
+}
+.iti__country-list {
+  max-width: 20.83em;
+  max-height: 18.26em;
+  padding: 0.9em 0.9em 1.31em 1.04em;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 1.11em 0 0 1.11em;
+  margin-top: 0.2em;
+  overflow-x: hidden;
+  border: none;
+}
+
+.iti__country-list::-webkit-scrollbar {
+width:4px;
+}
+/*track*/
+.iti__country-list::-webkit-scrollbar-track {
+background:#EAEAEA;
+border-radius:4px;
+}
+/*thumb*/
+.iti__country-list::-webkit-scrollbar-thumb {
+background:#BBBBBB;
+border-radius:4px;
+}
+
+.iti__country.iti__highlight {
+  background: #fafafa;
+  border-radius: 8px;
+}
+
+.iti__divider {
+  margin: 0.92em 0;
+  border-bottom: 1px solid #dddddd;
+}
+.iti__country {
+  padding: 6px 5px;
+}
+.iti__flag-box,
+.iti__country-name,
+.iti__dial-code {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.11em;
+  line-height: 1.5;
+  color: #222222;
+}
+.iti__dial-code{
+    color: #888888;
+}
