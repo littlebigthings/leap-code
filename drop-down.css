@@ -74,6 +74,7 @@ border-radius:4px;
 .iti__divider {
   margin: 0.92em 0;
   border-bottom: 1px solid #dddddd;
+  padding-bottom: 0;
 }
 .iti__country {
   padding: 6px 5px;

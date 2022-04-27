@@ -2,6 +2,7 @@ class LEADFORMSUBMISSION {
     constructor($formElm) {
         this.$formElement = $formElm;
         this.$inputElement = this.$formElement.querySelector("[data-input='number']");
+        this.$sendData = this.$formElement.querySelector("[data-input='add-number']")
         this.$infoFirst = this.$formElement.querySelector("[data-info='first']");
         this.$infoSecond = this.$formElement.querySelector("[data-info='second']");
         this.$successBlock = this.$formElement.querySelector(".success-msg");
@@ -9,6 +10,7 @@ class LEADFORMSUBMISSION {
         this.$btn = this.$formElement.querySelector("[data-btn='form']");
         this.inputPlugin = null;
         this.inputValue = null;
+        this.isFormSubmitted = false;
         this.init();
     }
 
@@ -27,6 +29,7 @@ class LEADFORMSUBMISSION {
                     success(countryCode);
                 });
             },
+            preferredCountries:["us",],
         });
 
     }
@@ -52,7 +55,7 @@ class LEADFORMSUBMISSION {
             this.$inputElement.style.borderColor = "transparent";
             let hasData = event.target.value;
             if (hasData.length > 0) {
-                if (this.validateNumber()) {
+                if (this.validateNumber() && !this.isFormSubmitted) {
                     this.showHideError(false, true, false)
                 }
                 else if (!this.validateNumber()) {
@@ -65,10 +68,12 @@ class LEADFORMSUBMISSION {
 
         this.$formElement.addEventListener("submit", (event) => {
             if (this.validateNumber()) {
-                this.$inputElement.value = this.inputValue;
+                this.isFormSubmitted = true;
+                this.$sendData.value = this.inputValue;
                 this.showHideError(false, false, false);
             }
             else if (!this.validateNumber()) {
+                this.isFormSubmitted = false;
                 event.preventDefault();
                 event.stopPropagation();
                 this.$btn.value = "Try again."
