@@ -30,6 +30,7 @@ class LEADFORMSUBMISSION {
                 });
             },
             preferredCountries:["us",],
+            excludeCountries:["af", "br", "ga", "iq", "ly", "mv", "ma", "kp", "kr", "sa", "ae"],
         });
 
     }
