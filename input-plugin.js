@@ -17,6 +17,19 @@ class LEADFORMSUBMISSION {
     init() {
         this.addPlugin();
         this.addListener();
+        this.checkResize()
+    }
+
+    checkResize() {
+        window.addEventListener("resize", () => {
+            if(this.inputPlugin){
+                let currentVal = this.$inputElement.value;
+                this.$inputElement.value = "";
+                this.inputPlugin.destroy();
+                this.addPlugin();
+                this.$inputElement.value = currentVal;
+            };
+        })
     }
 
     addPlugin() {
